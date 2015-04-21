@@ -1,0 +1,58 @@
+<tool id="blast_comparison" name="Blast report comparison" version="0.1.0">
+    <stdio>
+        <exit_code range="1:" />
+    </stdio>
+    <requirements>
+    </requirements>
+    <command><![CDATA[
+        main.py -o $input1 -n $input2 -s $output1
+    ]]></command>
+    <inputs>
+        <param type="data" name="input1" format="tab" />
+        <param type="data" name="input2" format="tab" />
+    </inputs>
+    <outputs>
+        <data name="output1" format="txt" from_work_dir="dataset_log.txt" />
+    </outputs>
+    <tests>
+        <test>
+            <param name="input1" value="dataset_dec_11_2013.tab"/>
+            <param name="input2" value="dataset_aug_22_2014.tab"/>
+            <output name="output1" file="dataset_log.txt"/>
+        </test>
+    </tests>
+    <help><![CDATA[
+        Usage: 
+    main.py [options]
+    Neccessary to provide are the two tabular BLAST files old (-o) and new (-n)
+    
+
+Options:
+  -h, --help            show this help message and exit
+  -o OLD_BLAST, --old=OLD_BLAST
+                        the older tabular BLAST file (24 columns)
+  -n NEW_BLAST, --new=NEW_BLAST
+                        the newer BLAST file
+  -t TOP, --top=TOP     specify when only the top X (integer value) hits for
+                        each query are of interest
+  -v, --verbose         print everything
+  -q, --quiet           stay quiet
+  -s SAVE_OUTPUT, --save=SAVE_OUTPUT
+                        file where the output is saved
+  -p OUTPUT_PATH, --put=OUTPUT_PATH
+                        the path where the saved output and/or exported hit
+                        files are stored
+  -l, --longOutput      enable long names in the output
+  -a, --adaptive        only display those hit classes, that have elements
+  -A, --notAdaptive     display all elements
+  -e EMAIL, --email=EMAIL
+                        email address of the user to send him/her notice of
+                        excess use
+  -x EXPORT, --export=EXPORT
+                        export specified hit categories (Example: "-x
+                        new,old_all,suppressed", Categories: "equal, similar,
+                        live, replaced, suppressed, new, strange, all_old and
+                        all_new)"
+
+    ]]></help>
+</tool>
