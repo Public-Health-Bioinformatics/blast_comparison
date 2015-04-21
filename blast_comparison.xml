@@ -4,7 +4,7 @@
     </stdio>
     <requirements>
     </requirements>
-    <command><![CDATA[
+    <command interpreter="python"><![CDATA[
         main.py -o $input1 -n $input2 -s $output1
     ]]></command>
     <inputs>
