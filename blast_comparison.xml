@@ -9,7 +9,7 @@
         $long_names
         $verbose
         #if $cutoff
-        		-n $cutoff
+        		-t $cutoff
         #end if
     ]]></command>
     <inputs>
